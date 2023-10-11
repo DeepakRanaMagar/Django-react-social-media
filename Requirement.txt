@@ -1,0 +1,9 @@
+Django -> Backend
+
+React -> Frontend
+
+pip install psycopg2-binary -> Postgres connector
+
+Insomina.rest-> API testing
+
+Rest Framework -> APIs
