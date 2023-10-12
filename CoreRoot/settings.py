@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
+    'core.user',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,15 @@ WSGI_APPLICATION = 'CoreRoot.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'coredb',
+        'USER': 'core',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        
+        
+        
     }
 }
 
@@ -98,6 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+AUTH_USER_MODEL = 'core_user.User'
 
 
 # Internationalization
