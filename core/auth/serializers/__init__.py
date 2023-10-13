@@ -1,2 +1,2 @@
 from core.auth.serializers.register import RegisterSerializer
-from core.auth.viewsets.register import LoginSerializer
+from core.auth.viewsets.login import LoginSerializer
