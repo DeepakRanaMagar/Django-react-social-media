@@ -36,9 +36,7 @@ class UserManager(BaseUserManager):
         user.is_staff = True
         user.save(using=self._db)
         return user
-
-
-
+    
 class User(AbstractBaseUser, PermissionsMixin):
     public_id = models.UUIDField(db_index=True, unique=True, default=uuid.uuid4, editable = False)
     username = models.CharField(db_index=True, unique=True, max_length=255)
@@ -47,6 +45,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now=True)
     updated = models.DateTimeField(auto_now_add=True)
     
@@ -61,3 +60,5 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def name(self):
         return f"{self.first_name} {self.last_name}"
+
+
