@@ -2,7 +2,7 @@ from rest_framework import routers
 from core.user.viewsets import UserViewSet
 from django.urls import path, include
 
-router = routers.DefaultRouter()
+router = routers.SimpleRouter()
 
 router.register(r'user', UserViewSet, basename = 'user')
 '''
@@ -10,5 +10,5 @@ router.register(r'user', UserViewSet, basename = 'user')
     basename is used to set the endpoint name
 '''
 urlpatterns = [
-    path('', include(router.urls)),
+    *router.urls,
 ]
