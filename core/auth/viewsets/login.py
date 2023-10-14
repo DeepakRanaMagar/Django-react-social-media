@@ -7,7 +7,7 @@ from core.auth.serializers.login import LoginSerializer
 
 class LoginViewSet(ViewSet):
     serializer_class = LoginSerializer
-    permission_classes = (AllowAny,)
+    permission_classes = [AllowAny,]
     http_method_names = ['post']
     
     def create(self, request, *args, **kwargs):

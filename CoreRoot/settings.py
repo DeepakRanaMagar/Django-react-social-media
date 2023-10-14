@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'core.user',
     'core.auth',
     'core.post',
-    
     'rest_framework',
     'rest_framework_simplejwt',
 ]
@@ -101,8 +100,6 @@ DATABASES = {
         'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '5432',
-        
-        
         
     }
 }
