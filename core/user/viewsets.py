@@ -4,7 +4,9 @@ from rest_framework import viewsets
 from core.user.serializers import UserSerializer
 from core.user.models import User
 
-class UserViewSet(viewsets.ModelViewSet):
+from core.abstract.viewsets import AbstractViewSet
+
+class UserViewSet(AbstractViewSet):
     # PATCH similar to PUT but not completely the same 
     http_method_names = ('patch', 'get') 
     permission_classes = (IsAuthenticated)
