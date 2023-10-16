@@ -2,15 +2,18 @@ Django -> Backend
 
 React -> Frontend
 
-<h3>Postgres connector</h3>
+Postgres connector
 pip install psycopg2-binary 
 
-<h3>API testing</h3>
+API testing
 Insomina.rest 
 
-<h3>DjangoRestFramework</h3>
+DjangoRestFramework
 pip install djangorestframework
 pip install django-filter
 
-<h3>Python Pillow</h3>
+Python Pillow
 pip install Pillow 
+
+Django Nested Routers
+pip install django-nested-routers
