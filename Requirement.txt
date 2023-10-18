@@ -17,3 +17,6 @@ pip install Pillow
 
 Django Nested Routers
 pip install django-nested-routers
+
+Pytest for testing
+pip install pytest-django
