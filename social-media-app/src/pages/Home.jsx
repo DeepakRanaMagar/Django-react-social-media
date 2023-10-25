@@ -1,15 +1,16 @@
 import React from "react";
 
-function Home(){
+function Home({ name }){
     return(
         <div>
             <h1>
-                Profile
+                hello, {name}!
             </h1>
             <p>
-                Welcome!
+                This is some text.
             </p>
         </div>
     );
 }
 export default Home;
+
