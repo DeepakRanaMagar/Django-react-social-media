@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -46,94 +46,106 @@ function RegistrationForm(){
     };
 
     return(
-        <form 
+        <Form 
             id = "registration-form"
             className="border p-4 rounded"
             noValidate
             validated={validated}
             onSubmit={handleSubmit}
         >
-            <form.Group className="mb-3">
-                <form.Label>First Name</form.Label>
-                <form.Control 
+            <Form.Group className="mb-3">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control 
                     value={form.first_name}
                     onChange = {(e) => setForm({...form, first_name: e.target.value})}
                     required
                     type = "text"
                     placeholder="First Name"
-                ></form.Control>
-                <form.Control.Feedback type = "invalid">
+                ></Form.Control>
+                <Form.Control.Feedback type = "invalid">
                     This cannot be left empty.
-                </form.Control.Feedback>
-            </form.Group>
+                </Form.Control.Feedback>
+            </Form.Group>
 
-            <form.Group className="mb-3">
-                <form.Label>Last Name</form.Label>
-                <form.Control 
+            <Form.Group className="mb-3">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control 
                     value={form.last_name}
                     onChange = {(e) => setForm({...form, last_name: e.target.value})}
                     required
                     type = "text"
                     placeholder="Last Name"
-                ></form.Control>
-                <form.Control.Feedback type = "invalid">
+                ></Form.Control>
+                <Form.Control.Feedback type = "invalid">
                     This cannot be left empty.
-                </form.Control.Feedback>
-            </form.Group>
+                </Form.Control.Feedback>
+            </Form.Group>
 
-            <form.Group className="mb-3">
-                <form.Label>Username</form.Label>
-                <form.Control 
+            <Form.Group className="mb-3">
+                <Form.Label>Username</Form.Label>
+                <Form.Control 
                     value={form.username}
                     onChange = {(e) => setForm({...form, username: e.target.value})}
                     required
                     type = "text"
                     placeholder="username"
-                ></form.Control>
-                <form.Control.Feedback type = "invalid">
+                ></Form.Control>
+                <Form.Control.Feedback type = "invalid">
                     This cannot be left empty.
-                </form.Control.Feedback>
-            </form.Group>
+                </Form.Control.Feedback>
+            </Form.Group>
 
-            <form.Group className="mb-3">
-                <form.Label>Email</form.Label>
-                <form.Control 
+            <Form.Group className="mb-3">
+                <Form.Label>Email</Form.Label>
+                <Form.Control 
                     value={form.email}
                     onChange = {(e) => setForm({...form, email: e.target.value})}
                     required
                     type = "email"
                     placeholder="Username"
-                ></form.Control>
-                <form.Control.Feedback type = "invalid">
+                ></Form.Control>
+                <Form.Control.Feedback type = "invalid">
                     This cannot be left empty.
-                </form.Control.Feedback>
-            </form.Group>
+                </Form.Control.Feedback>
+            </Form.Group>
 
-            <form.Group className="mb-3">
-                <form.Label>Password</form.Label>
-                <form.Control 
+            <Form.Group className="mb-3">
+                <Form.Label>Password</Form.Label>
+                <Form.Control 
                     value={form.password}
                     minLength = "8"
                     onChange = {(e) => setForm({...form, password: e.target.value})}
                     required
                     type = "password"
                     placeholder="Password"
-                ></form.Control>
-                <form.Control.Feedback type = "invalid">
+                ></Form.Control>
+                <Form.Control.Feedback type = "invalid">
                     This cannot be left empty.
-                </form.Control.Feedback>
-            </form.Group>
+                </Form.Control.Feedback>
+            </Form.Group>
 
-            <form.Group className="mb-3">
-                <form.Label>Bio</form.Label>
-                <form.Control 
+            <Form.Group className="mb-3">
+                <Form.Label>Bio</Form.Label>
+                <Form.Control 
                     value={form.bio}
                     onChange = {(e) => setForm({...form, bio: e.target.value})}
                     required
                     as="textarea"
                     placeholder="A simple bio ... (Optional)"
-                ></form.Control>
-            </form.Group>
-        </form>
-    )
+                ></Form.Control>
+            </Form.Group>
+
+            <div className="text-content text-dangers">
+                {error && <p>
+                    {error}</p>}
+            </div>
+
+            <Button variant="primary" type="submit">
+                submit
+            </Button>
+
+        </Form>
+    );
 }
+
+export default RegistrationForm;
