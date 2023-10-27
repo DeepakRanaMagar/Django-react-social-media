@@ -129,8 +129,8 @@ function RegistrationForm(){
                 <Form.Control 
                     value={form.bio}
                     onChange = {(e) => setForm({...form, bio: e.target.value})}
-                    required
                     as="textarea"
+                    rows={3}
                     placeholder="A simple bio ... (Optional)"
                 ></Form.Control>
             </Form.Group>
