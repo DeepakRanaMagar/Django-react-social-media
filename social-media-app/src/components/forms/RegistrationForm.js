@@ -13,7 +13,7 @@ function RegistrationForm(){
         event.preventDefault();
         const regisrationForm = event.currentTarget;
     
-        if(RegistrationForm.checkValidity() === false){
+        if(regisrationForm.checkValidity() === false){
             event.stopPropagation();
         }
     
