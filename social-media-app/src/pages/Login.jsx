@@ -13,7 +13,7 @@ function Login(){
                         </h1>
                         <p className="content">
                             Login to your account! <br/>
-                            Don't have an account? <Link to="/registration/">Create your create</Link>
+                            Don't have an account? <Link to="/register/">Create your create</Link>
                         </p>
                     </div>
                 </div>

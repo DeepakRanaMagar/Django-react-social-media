@@ -54,7 +54,7 @@ function RegistrationForm(){
             onSubmit={handleSubmit}
         >
             <Form.Group className="mb-3">
-                <Form.Label>First Name</Form.Label>
+                {/* <Form.Label>First Name</Form.Label> */}
                 <Form.Control 
                     value={form.first_name}
                     onChange = {(e) => setForm({...form, first_name: e.target.value})}
@@ -68,7 +68,7 @@ function RegistrationForm(){
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>Last Name</Form.Label>
+                {/* <Form.Label>Last Name</Form.Label> */}
                 <Form.Control 
                     value={form.last_name}
                     onChange = {(e) => setForm({...form, last_name: e.target.value})}
@@ -82,26 +82,12 @@ function RegistrationForm(){
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>Username</Form.Label>
+                {/* <Form.Label>Username</Form.Label> */}
                 <Form.Control 
                     value={form.username}
                     onChange = {(e) => setForm({...form, username: e.target.value})}
                     required
                     type = "text"
-                    placeholder="username"
-                ></Form.Control>
-                <Form.Control.Feedback type = "invalid">
-                    This cannot be left empty.
-                </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-                <Form.Label>Email</Form.Label>
-                <Form.Control 
-                    value={form.email}
-                    onChange = {(e) => setForm({...form, email: e.target.value})}
-                    required
-                    type = "email"
                     placeholder="Username"
                 ></Form.Control>
                 <Form.Control.Feedback type = "invalid">
@@ -110,7 +96,21 @@ function RegistrationForm(){
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>Password</Form.Label>
+                {/* <Form.Label>Email</Form.Label> */}
+                <Form.Control 
+                    value={form.email}
+                    onChange = {(e) => setForm({...form, email: e.target.value})}
+                    required
+                    type = "email"
+                    placeholder="Email"
+                ></Form.Control>
+                <Form.Control.Feedback type = "invalid">
+                    This cannot be left empty.
+                </Form.Control.Feedback>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                {/* <Form.Label>Password</Form.Label> */}
                 <Form.Control 
                     value={form.password}
                     minLength = "8"
@@ -125,13 +125,13 @@ function RegistrationForm(){
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>Bio</Form.Label>
+                {/* <Form.Label>Bio</Form.Label> */}
                 <Form.Control 
                     value={form.bio}
                     onChange = {(e) => setForm({...form, bio: e.target.value})}
                     as="textarea"
                     rows={3}
-                    placeholder="A simple bio ... (Optional)"
+                    placeholder="Your Bio ... (Optional)"
                 ></Form.Control>
             </Form.Group>
 

@@ -49,7 +49,7 @@ function LoginForm() {
             onSubmit={handleSubmit}
         >
             <Form.Group className="mb-3">
-                <Form.Label>Username</Form.Label>
+                {/* <Form.Label>Username</Form.Label> */}
                 <Form.Control
                     value = {form.username}
                     onChange = {(e) => setForm({ ...form, username: e.target.value})}
@@ -63,10 +63,11 @@ function LoginForm() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>Password</Form.Label>
+                {/* <Form.Label>Password</Form.Label> */}
                 <Form.Control
                     value = {form.password}
-                    onChange = {(e) => setForm({ ...form, password: e.target.value})}
+                    minLength="8"
+                    onChange={ (e) => setForm({...form, passowrd:e.target.value})}
                     required
                     type="password"
                     placeholder="Password"
