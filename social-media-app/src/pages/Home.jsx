@@ -1,15 +1,11 @@
 import React from "react";
+import Layout from "../components/Layout";
 
 function Home({ name }){
     return(
-        <div>
-            <h1>
-                hello, {name}!
-            </h1>
-            <p>
-                This is some text.
-            </p>
-        </div>
+        <Layout>
+            
+        </Layout>
     );
 }
 export default Home;
