@@ -1,18 +1,12 @@
 import React from "react";
-import Navigationbar from "./Navbar";
-import React, { createContext, useMemo, useState } from "react";
-import { ArrowLeftOutlined } from "@ant-design/icons";
-import Toaster from "./Toaster";
-import { useNavigate }
-
+import NavigationBar from "./Navbar";
 
 function Layout(props){
-    return (
+    return(
         <div>
-            <Navigationbar/>
+            <NavigationBar/>
             <div className="container m-5">{props.children}</div>
         </div>
     );
 }
-
 export default Layout;
