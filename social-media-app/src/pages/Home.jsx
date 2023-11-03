@@ -6,14 +6,21 @@ import useSWR from "swr";
 import { fetcher } from "../helpers/axios";
 import { getUser } from "../hooks/user.actions";
 import CreatePost from "../components/posts/CreatePost";
+import { Post } from "../components/posts";
 
 function Home({ name }){
+    
+    const posts = useSWR("/posts/", fetcher, {
+        refreshInterval: 10000,
+    });
+    
     const user = getUser();
 
     if(!user){
         return <div>Loading!</div>;
     }
 
+    
     return(
         <Layout>
             <Row className="justify-content-evenly">
@@ -32,8 +39,14 @@ function Home({ name }){
                         <Col
                             sm={10} className="flex-grow-1"
                         >
-                            <CreatePost></CreatePost>
+                            <CreatePost>
+                            </CreatePost>
                         </Col>
+                    </Row>
+                    <Row>
+                        {posts.data?.results.map((post, index) => (
+                            <Post key={index} post={post} refresh={posts.mutate}></Post>
+                        ))}
                     </Row>
                 </Col>
             </Row>    
