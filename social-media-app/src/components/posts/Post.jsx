@@ -28,7 +28,7 @@ const MoreToggleIcon = React.forwardRef( ({onClick}, ref) => (
 ));
 
 function Post(props){
-    const { post, refresh } = props;
+    const { post, refresh, isSinglePost } = props;
 
     const [showToast, setShowToast] =useState(false);
     const user = getUser();
@@ -66,7 +66,7 @@ function Post(props){
                                         {/* <Dropdown.Item>Update</Dropdown.Item> */}
                                         <UpdatePost post={post}
                                                     refresh={refresh}/>
-                                                    
+
                                         <Dropdown.Item onClick={handleDelete} className="text-danger">Delete</Dropdown.Item>
 
                                     </Dropdown.Menu>
@@ -117,6 +117,16 @@ function Post(props){
                             <small>{post.likes_count} like</small>
                         </p>
                     </div>
+
+                    {!isSinglePost && (
+                        <p className="ms-1 fs-6">
+                            <small>
+                                <Link to={`/post/${post.id}/`}>
+                                    {post.comments_count} comments
+                                </Link>
+                            </small>
+                        </p>
+                    )}
                 </Card.Body>
 
                 <Card.Footer className="d-flex bg-white w-50 justify-content-between border-0">
@@ -143,20 +153,22 @@ function Post(props){
                             </p>
                         </div>
                         {/* comment icon */}
-                        <div className="d-flex flex-row">
-                                <CommentOutlined style={{
-                                    width:"24px",
-                                    height:"24px",
-                                    padding: "2px",
-                                    fontSize: "20px",
-                                    color: "#C4C4C4",
-                                }}>
-                                </CommentOutlined>
+                        {!isSinglePost && (
+                            <div className="d-flex flex-row">
+                                    <CommentOutlined style={{
+                                        width:"24px",
+                                        height:"24px",
+                                        padding: "2px",
+                                        fontSize: "20px",
+                                        color: "#C4C4C4",
+                                    }}>
+                                    </CommentOutlined>
 
-                                <p className="ms-1 mb-0">
-                                    <small>Comment</small>
-                                </p>
-                        </div>
+                                    <p className="ms-1 mb-0">
+                                        <small>Comment</small>
+                                    </p>
+                            </div>
+                        )}    
                 </Card.Footer>
             </Card>
             <Toaster title="POST!" message="Post Deleted" type="danger" showToast={showToast} onClick={
