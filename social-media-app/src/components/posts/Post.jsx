@@ -12,6 +12,7 @@ import axiosService from "../../helpers/axios";
 import Toaster from "../Toaster";
 import { Link } from "react-router-dom";
 import { getUser } from "../../hooks/user.actions";
+import UpdatePost from "./UpdatePost";
 
 const MoreToggleIcon = React.forwardRef( ({onClick}, ref) => (
     <Link 
@@ -62,7 +63,10 @@ function Post(props){
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
-                                        <Dropdown.Item>Update</Dropdown.Item>
+                                        {/* <Dropdown.Item>Update</Dropdown.Item> */}
+                                        <UpdatePost post={post}
+                                                    refresh={refresh}/>
+                                                    
                                         <Dropdown.Item onClick={handleDelete} className="text-danger">Delete</Dropdown.Item>
 
                                     </Dropdown.Menu>

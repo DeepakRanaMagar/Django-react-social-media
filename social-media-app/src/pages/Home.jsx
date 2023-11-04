@@ -39,8 +39,8 @@ function Home({ name }){
                         <Col
                             sm={10} className="flex-grow-1"
                         >
-                            <CreatePost>
-                            </CreatePost>
+                            
+                            <CreatePost refresh={posts.mutate}/>
                         </Col>
                     </Row>
                     <Row>
