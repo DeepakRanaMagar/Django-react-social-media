@@ -9,6 +9,7 @@ import CreateComment from "../components/comments/CreateComment";
 import Comment from "../components/comments/Comment";
 
 function SinglePost(){
+    console.log(useParams());
     let { postId } = useParams();
     
     const post = useSWR(`/post/${postId}/`,fetcher);
@@ -16,8 +17,20 @@ function SinglePost(){
     const comments = useSWR(`/post/${postId}/comment/`,fetcher);
 
     return(
-        
+        <Layout hasNavigationBack>
+            {post.data?(
+                <Row className="justify-content-center">
+                    <Col>
+                        <Post post={post.data} refresh={post.mutate} isSinglePost />
+                    </Col>
+                </Row>
+            ): (
+                <div>
+                    Loading..
+                </div>
+            )}
+        </Layout>        
     );
 }
 
-
+export default SinglePost;

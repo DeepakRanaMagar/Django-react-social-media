@@ -6,7 +6,7 @@ import {
     LikeOutlined,
 } from "@ant-design/icons";
 
-import { Image, Card, Dropdown, Modal, Form} from "react-bootstrap";
+import { Image, Card, Dropdown} from "react-bootstrap";
 import { randomAvatar } from "../../utils";
 import axiosService from "../../helpers/axios";
 import Toaster from "../Toaster";
