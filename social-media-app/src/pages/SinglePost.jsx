@@ -19,9 +19,11 @@ function SinglePost(){
     return(
         <Layout hasNavigationBack>
             {post.data?(
+                
                 <Row className="justify-content-center">
-                    <Col>
+                    <Col sm={8}>
                         <Post post={post.data} refresh={post.mutate} isSinglePost />
+                        <CreateComment postId={post.data.id} refresh={comments.mutate}/>
                     </Col>
                 </Row>
             ): (
