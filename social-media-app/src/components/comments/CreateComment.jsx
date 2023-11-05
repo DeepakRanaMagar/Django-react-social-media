@@ -4,6 +4,8 @@ import axiosService from "../../helpers/axios";
 import { getUser } from "../../hooks/user.actions";
 import { randomAvatar } from "../../utils";
 import { Context } from "../Layout";
+import { format } from "timeago.js";
+
 
 function CreateComment(props){
     const { postId, refresh } =props;
@@ -51,7 +53,7 @@ function CreateComment(props){
                 });
             });
     };
-    
+
     return(
         <Form 
             className="d-flex flex-row justify-content-between"
