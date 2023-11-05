@@ -4,7 +4,6 @@ import axiosService from "../../helpers/axios";
 import { getUser } from "../../hooks/user.actions";
 import { randomAvatar } from "../../utils";
 import { Context } from "../Layout";
-import { format } from "timeago.js";
 
 
 function CreateComment(props){
