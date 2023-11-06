@@ -7,6 +7,7 @@ import { fetcher } from "../helpers/axios";
 import { getUser } from "../hooks/user.actions";
 import CreatePost from "../components/posts/CreatePost";
 import Post from "../components/posts/Post";
+import ProfileCard from "../components/profile/ProfileCard";
 
 function Home({ name }){
     
@@ -20,6 +21,7 @@ function Home({ name }){
         return <div>Loading!</div>;
     }
 
+    const profiles = useSWR("/user/?limit=5", fetcher);
     
     return(
         <Layout>
