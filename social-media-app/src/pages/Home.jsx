@@ -15,20 +15,26 @@ function Home({ name }){
         refreshInterval: 10000,
     });
     
+    const profiles = useSWR("/user/?limit=5", fetcher);
+    
     const user = getUser();
 
     if(!user){
         return <div>Loading!</div>;
     }
 
-    const profiles = useSWR("/user/?limit=5", fetcher);
-    
+
     return(
         <Layout>
+            
             <Row className="justify-content-evenly">
+            
                 <Col sm={7}>
+            
                     <Row className="border rounded align-items-center">
+            
                         <Col className="flex-shrink-1">
+            
                             <Image 
                                 src = {randomAvatar()}
                                 roundedCircle
@@ -50,6 +56,18 @@ function Home({ name }){
                             <Post key={index} post={post} refresh={posts.mutate}></Post>
                         ))}
                     </Row>
+                </Col>
+
+                {/* ProfileCard display */}
+                <Col className="border rounded py-4 h-50" sm={3}>
+                    <h4 className="font-weight-bold text-center">
+                        People you may know
+                    </h4>
+                    <div className="d-flex flex-column">
+                        {profiles.data && profiles.data.results.map((profile, index)=>(
+                            <ProfileCard key={index} user={profile}></ProfileCard>
+                        ))}
+                    </div>
                 </Col>
             </Row>    
         </Layout>
