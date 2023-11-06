@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { format } from "timeago.js";
 import { Image, Card, Dropdown } from "react-bootstrap";
 import { randomAvatar } from "../../utils";
@@ -6,11 +6,11 @@ import axiosService from "../../helpers/axios";
 import { getUser } from "../../hooks/user.actions";
 import UpdateComment from "./UpdateComment";
 import { Context } from "../Layout";
-import MoreToggleIcon from "../MoreToggleIcon";
+import MoreToggleIcon from "../MoreToogleIcon";
 
 function Comment(props){
     const { postId, comment, refresh} = props;
-    const { taoster, setToaster } = useContext(Context);
+    const { setToaster } = useContext(Context);
 
     const user = getUser();
 
@@ -70,7 +70,16 @@ function Comment(props){
                                 <Dropdown.Menu>
                                     <Dropdown.Item>Edit</Dropdown.Item>
                                     <Dropdown.Item onclick={handleDelete} className="text-danger">Delete</Dropdown.Item>
+                                </Dropdown.Menu>
 
+                                <Dropdown.Menu>
+                                    <UpdateComment
+                                        comment={comment}
+                                        refresh={refresh}
+                                        postId={postId}
+                                    ></UpdateComment>
+
+                                    <Dropdown.Item onClick={handleDelete} className="text-danger">Delete</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>

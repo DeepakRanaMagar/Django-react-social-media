@@ -13,19 +13,19 @@ import Toaster from "../Toaster";
 import { Link } from "react-router-dom";
 import { getUser } from "../../hooks/user.actions";
 import UpdatePost from "./UpdatePost";
-
-const MoreToggleIcon = React.forwardRef( ({onClick}, ref) => (
-    <Link 
-        to="#"
-        ref={ref}
-        onClick = {(e) => {
-            e.preventDefault();
-            onClick(e);
-        }}>
+import MoreToggleIcon from "../MoreToogleIcon";
+// const MoreToggleIcon = React.forwardRef( ({onClick}, ref) => (
+//     <Link 
+//         to="#"
+//         ref={ref}
+//         onClick = {(e) => {
+//             e.preventDefault();
+//             onClick(e);
+//         }}>
     
-    <MoreOutlined/>
-    </Link>
-));
+//     <MoreOutlined/>
+//     </Link>
+// ));
 
 function Post(props){
     const { post, refresh, isSinglePost } = props;
