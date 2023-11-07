@@ -25,27 +25,33 @@ function NavigationBar() {
 
     return (
         <Navbar bg="primary" variant="dark">
-        <Container>
-            <Navbar.Brand className="fw-bold" as={Link} to={`/`}>
-                Flexogram
-            </Navbar.Brand>
-            <Navbar.Collapse className="justify-content-end">
-        <Nav>
+            <Container>
         
-        <NavDropdown
-            title={
-                <Image src={user.avatar} roundedCircle width={36} height={36} />
-            }
-            >
-            <NavDropdown.Item as={Link} to={`/profile/${user.id}/`}>
-                Profile
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
-            </NavDropdown>
-        </Nav>
-        </Navbar.Collapse>
-    </Container>
-    </Navbar>
+                <Navbar.Brand className="fw-bold" as={Link} to={`/`}>
+                    Flexogram
+                </Navbar.Brand>
+        
+                <Navbar.Collapse className="justify-content-end">
+        
+                    <Nav>
+                        <NavDropdown
+                            title={
+                                <Image src={user.avatar} roundedCircle width={36} height={36} />
+                            }
+                            >
+                            <NavDropdown.Item as={Link} to={`/profile/${user.id}/`}>
+                                Profile
+                            </NavDropdown.Item>
+
+                            <NavDropdown.Item onClick={handleLogout}>
+                                Logout    
+                            </NavDropdown.Item>
+                            
+                        </NavDropdown>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 
