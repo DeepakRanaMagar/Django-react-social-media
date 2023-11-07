@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import ProfileDetails from "../components/profile/ProfileDetails";
 import useSWR from "swr";
 import { fetcher } from "../helpers/axios";
-import Post from "../components/post/Post";
+import Post from "../components/posts/Post";
 import { Row, Col } from "react-bootstrap";
 
 function Profile(){

@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 
 import { Image, Card, Dropdown} from "react-bootstrap";
-import { randomAvatar } from "../../utils";
+// import { randomAvatar } from "../../utils";
 import axiosService from "../../helpers/axios";
 import Toaster from "../Toaster";
 import { Link } from "react-router-dom";
