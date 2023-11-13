@@ -14,12 +14,13 @@ function NavigationBar() {
 
     const handleLogout = () => {
     
-        userActions.logout().catch((e) =>    setToaster({
-            type: "danger",
-            message: "Logout failed",
-            show: true,
-            title: e.data?.detail | "An error occurred.",
-        })
+        userActions.logout().catch((e) => 
+            setToaster({
+                type: "danger",
+                message: "Logout failed",
+                show: true,
+                title: e.data?.detail | "An error occurred.",
+            })
         );
     };
 

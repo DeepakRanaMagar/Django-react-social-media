@@ -78,7 +78,7 @@ function LoginForm() {
                 <Form.Control
                     value = {form.password}
                     minLength="8"
-                    onChange={ (e) => setForm({...form, passowrd:e.target.value})}
+                    onChange={ (e) => setForm({...form, password:e.target.value})}
                     required
                     type="password"
                     placeholder="Password"

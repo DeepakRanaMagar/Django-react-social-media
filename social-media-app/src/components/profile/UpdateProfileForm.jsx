@@ -1,14 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Form, Button, Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useUserActions } from "../../hooks/useActions";
+import { useUserActions } from "../../hooks/user.actions";
 import { Context } from "../Layout";
 
 function UpdateProfileForm(props){
     const { profile } = props;
     const navigate = useNavigate();
 
-    const [validated, setValidated] = useState(false);
+    const [validated] = useState(false);
     const [form, setForm] = useState(profile);
     const [error, setError] = useState(null);
 
@@ -16,7 +16,7 @@ function UpdateProfileForm(props){
 
     const [avatar, setAvatar] = useState();
 
-    const { toaster, setToaster} = useContext(Context);
+    const { setToaster} = useContext(Context);
 
     const handleSubmit = (event)=>{
         event.preventDefault();
