@@ -4,7 +4,7 @@ import axios from "axios";
 
 function useUserActions() {
     const navigate = useNavigate();
-    const baseURL = process.env.REACT_APP_API_URL;
+    const baseURL = 'http://localhost:8000/api';
 
     return {
         login,
@@ -14,7 +14,7 @@ function useUserActions() {
     };
 
   // Login the user
-    function login(data) {
+    async function login(data) {
         return axios.post(`${baseURL}/auth/login/`, data).then((res) => {
             setUserData(res.data);  
             navigate("/");
@@ -22,7 +22,7 @@ function useUserActions() {
     }
 
   // Register the user
-    function register(data) {
+    async function register(data) {
         return axios.post(`${baseURL}/auth/register/`, data).then((res) => {
         // Registering the account and tokens in the store
             setUserData(res.data);
@@ -31,7 +31,7 @@ function useUserActions() {
     }
 
   // Edit the user
-    function edit(data, userId) {
+    async function edit(data, userId) {
         return axiosService
             .patch(`${baseURL}/user/${userId}/`, data, {
                 headers: {
@@ -52,7 +52,7 @@ function useUserActions() {
     }
 
   // Logout the user
-    function logout() {
+    async function logout() {
         return axiosService
             .post(`${baseURL}/auth/logout/`, { refresh: getRefreshToken() })
             .then(() => {

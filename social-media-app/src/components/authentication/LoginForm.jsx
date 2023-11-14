@@ -8,7 +8,7 @@ function LoginForm() {
     // const navigate = useNavigate();
     const [validated, setValidated] = useState(false);
     const [form, setForm] = useState({
-        username:"",
+        email:"",
         password:"",
     });
 
@@ -25,7 +25,7 @@ function LoginForm() {
         setValidated(true);
 
         const data = {
-            username: form.username,
+            email: form.email,
             password: form.password,
         };
 
@@ -62,14 +62,14 @@ function LoginForm() {
             <Form.Group className="mb-3">
                 {/* <Form.Label>Username</Form.Label> */}
                 <Form.Control
-                    value = {form.username}
-                    onChange = {(e) => setForm({ ...form, username: e.target.value})}
+                    value = {form.email}
+                    onChange = {(e) => setForm({ ...form, email: e.target.value})}
                     required
                     type="text"
-                    placeholder="Username"
+                    placeholder="Email"
                 ></Form.Control>
                 <Form.Control.Feedback type = "invalid">
-                    Username must be entered.
+                    Email must be entered.
                 </Form.Control.Feedback>
             </Form.Group>
 
