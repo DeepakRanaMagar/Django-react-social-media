@@ -104,7 +104,8 @@ function CreatePost(props){
                     <Button 
                         variant="primary"
                         onClick={handleSubmit}
-                        disabled={form.body === !form.body}
+                        disabled={!form.body}
+                        data-testid = "create-post-submit"
                         >
                             Post
                         </Button>
