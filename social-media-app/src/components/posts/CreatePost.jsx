@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import axiosService from "../../helpers/axios";
 import { getUser } from "../../hooks/user.actions";
 import Toaster from "../Toaster";
+import { Context }from "../Layout";
 
 function CreatePost(props){
     const [show, setShow] = useState(false);
+    const [validated, setValidated] = useState(false);
+    
+    const [form, setForm] = useState({
+        author: "",
+        body: "",
+    });
+    
+    const user = getUser();
+    
+    const { setToaster } = useContext(Context);
+    
+    const { refresh } = props;
+    
     const handleClose =() =>setShow(false);
     const handleShow =() => setShow(true);
-    const [validated, setValidated] = useState(false);
-    const [form, setForm] = useState({});
-
-    const user = getUser();
-
-    const [showToast, setShowToast] = useState(false);
-    const [toastMessage, setToastMessage] = useState("");
-    const [toastType, setToastType] = useState("");
-
-    const { refresh } = props;
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const createPostForm = event.currentTarget;
@@ -37,15 +40,22 @@ function CreatePost(props){
             .post("/post/",data)
             .then( () => {
                 handleClose();
-                setToastMessage("Post Created 🚀");
-                setToastType("success");
+                setToaster({
+                    type:"success",
+                    message: "Posted!",
+                    show: true,
+                    title: "Post Success",
+                });                
                 setForm({});
-                setShowToast(true);
                 refresh();
             })
             .catch(() =>{
-                setToastMessage("Failed!");
-                setToastType("danger");
+                setToaster({
+                    type: "error",
+                    message: "Something went wrong!",
+                    show: true,
+                    title: "Post Failed",
+                });
             });
     };
 
@@ -79,8 +89,8 @@ function CreatePost(props){
                         <Form.Group className="mb-3">
                             <Form.Control
                                 name="body"
-                                value="form.body"
-                                onChange={(e) => setForm({...Form, body: e.target.value})}
+                                value={form.body}
+                                onChange={(e) => setForm({...form, body: e.target.value})}
                                 as="textarea"
                                 rows={3}
                             >
@@ -94,22 +104,12 @@ function CreatePost(props){
                     <Button 
                         variant="primary"
                         onClick={handleSubmit}
-                        disabled={form.body === undefined}
+                        disabled={form.body === !form.body}
                         >
                             Post
                         </Button>
                 </Modal.Footer>
-            </Modal>
-
-            {/* Toaster */}
-            <Toaster
-                title="Post!"
-                message = {toastMessage}
-                showToast = {showToast}
-                type = {toastType}
-                onClose = { () => setShowToast(false)}
-            >
-            </Toaster>        
+            </Modal>     
         </>
     );
 };
