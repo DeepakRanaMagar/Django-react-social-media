@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import axiosService from "../../helpers/axios";
 import { getUser } from "../../hooks/user.actions";
-import Toaster from "../Toaster";
 import { Context }from "../Layout";
 
 function CreatePost(props){

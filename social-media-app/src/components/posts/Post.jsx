@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { format } from "timeago.js";
 import {
     LikeFilled,
@@ -7,33 +7,20 @@ import {
 } from "@ant-design/icons";
 
 import { Image, Card, Dropdown} from "react-bootstrap";
-// import { randomAvatar } from "../../utils";
 import axiosService from "../../helpers/axios";
-import Toaster from "../Toaster";
 import { Link } from "react-router-dom";
 import { getUser } from "../../hooks/user.actions";
 import UpdatePost from "./UpdatePost";
 import MoreToggleIcon from "../MoreToogleIcon";
-// const MoreToggleIcon = React.forwardRef( ({onClick}, ref) => (
-//     <Link 
-//         to="#"
-//         ref={ref}
-//         onClick = {(e) => {
-//             e.preventDefault();
-//             onClick(e);
-//         }}>
-    
-//     <MoreOutlined/>
-//     </Link>
-// ));
+import { Context } from "../Layout";
+
 
 function Post(props){
     const { post, refresh, isSinglePost } = props;
-
-    const [showToast, setShowToast] =useState(false);
+    const { setToaster } = useContext(Context);
     const user = getUser();
 
-    const handleLikeClick = (action) => {
+    const handleLikeClick = async (action) => {
         axiosService
             .post(`/post/${post.id}/${action}/`)
             .then( ()=> {
@@ -46,7 +33,12 @@ function Post(props){
         axiosService
             .delete(`/post/${post.id}/`)
             .then( ()=> {
-                setShowToast(true);
+                setToaster({
+                    type: "Warning",
+                    message: "Post Deleted!",
+                    show: true,
+                    title: "Post Deleted",
+                });
                 refresh();
             })
             .catch((err) => console.error(err));
@@ -171,10 +163,10 @@ function Post(props){
                         )}    
                 </Card.Footer>
             </Card>
-            <Toaster title="POST!" message="Post Deleted" type="danger" showToast={showToast} onClick={
+            {/* <Toaster title="POST!" message="Post Deleted" type="danger" showToast={showToast} onClick={
                 ()=> setShowToast(false)
             }>
-            </Toaster>
+            </Toaster> */}
         </>
     );
 };
