@@ -3,11 +3,11 @@ import { Card,  Button, Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom"; 
 
 function ProfileCard(props){
-    const naivgate = useNavigate();
+    const navigate = useNavigate();
     const { user } = props;
 
     const handleNavigateToProfile= ()=>{
-        naivgate(`/profile/${user.id}/`)
+        navigate(`/profile/${user.id}/`);
     };
 
 

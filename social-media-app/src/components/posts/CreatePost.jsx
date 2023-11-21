@@ -21,6 +21,7 @@ function CreatePost(props){
     
     const handleClose =() =>setShow(false);
     const handleShow =() => setShow(true);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const createPostForm = event.currentTarget;
@@ -37,6 +38,7 @@ function CreatePost(props){
 
         axiosService
             .post("/post/",data)
+
             .then( () => {
                 handleClose();
                 setToaster({
@@ -48,7 +50,8 @@ function CreatePost(props){
                 setForm({});
                 refresh();
             })
-            .catch(() =>{
+            .catch((error) =>{
+                console.error(error);
                 setToaster({
                     type: "error",
                     message: "Something went wrong!",
@@ -104,7 +107,7 @@ function CreatePost(props){
                         variant="primary"
                         onClick={handleSubmit}
                         disabled={!form.body}
-                        data-testid = "create-post-submit"
+                        // data-testid = "create-post-submit"
                         >
                             Post
                         </Button>

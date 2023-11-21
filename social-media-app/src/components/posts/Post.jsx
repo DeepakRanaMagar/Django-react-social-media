@@ -41,7 +41,15 @@ function Post(props){
                 });
                 refresh();
             })
-            .catch((err) => console.error(err));
+            .catch((err) => {
+                console.error(err);
+                setToaster({
+                    type: "danger",
+                    message: "Something went wrong!",
+                    show: true,
+                    title: "Post Failed",
+                });
+            });
     }
     return(
         <>
