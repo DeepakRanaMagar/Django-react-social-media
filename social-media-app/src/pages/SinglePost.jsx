@@ -28,7 +28,7 @@ function SinglePost(){
                 </Row>
             ): (
                 <div>
-                    Loading..
+                    Loading...
                 </div>
             )}
         </Layout>        
