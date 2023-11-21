@@ -5,8 +5,10 @@ import { getUser } from "../../hooks/user.actions";
 
 function ProfileDetails(props) {
     const { user } = props;
-    const navigate = useNavigate();
+    console.log(user);
 
+    const navigate = useNavigate();
+    
     if (!user) {
 
         return <div>Loading..</div>;
