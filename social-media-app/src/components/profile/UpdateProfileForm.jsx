@@ -5,20 +5,22 @@ import { useUserActions } from "../../hooks/user.actions";
 import { Context } from "../Layout";
 
 function UpdateProfileForm(props){
-    const { profile } = props;
     const navigate = useNavigate();
-
-    const [validated] = useState(false);
-    const [form, setForm] = useState(profile);
-    const [error, setError] = useState(null);
-
+    const { setToaster} = useContext(Context);
     const userActions = useUserActions();
+    
+    const [validated] = useState(false);
+    const [error, setError] = useState(null);
+    
+    const { profile } = props;
+    const [form, setForm] = useState(profile);
 
     const [avatar, setAvatar] = useState();
 
-    const { setToaster} = useContext(Context);
 
-    const handleSubmit = (event)=>{
+
+
+    const handleSubmit = async (event)=>{
         event.preventDefault();
         const updateProfileForm = event.currentTarget;
 
@@ -43,7 +45,7 @@ function UpdateProfileForm(props){
         if (avatar){
             formData.append("avatar", avatar);
         }
-
+        console.log(avatar);
         userActions
             .edit(formData, profile.id)
             .then( ()=> {
@@ -57,7 +59,9 @@ function UpdateProfileForm(props){
             })
             .catch( (err)=> {
                 if(err.message){
-                    setError(err.request.response);       
+                    setError(err.message);       
+                }else{
+                    setError("An error occurred while updating your profile.");
                 }
             });
         
@@ -70,12 +74,20 @@ function UpdateProfileForm(props){
             validated={validated}
             onSubmit={handleSubmit}
         >
+
             {/* Group for avatar  */}
             <Form.Group
                 className="mb-3 d-flex flex-column">
 
                 <Form.Label className="text-center">Avatar</Form.Label>
-                <Image src={form.avatar} roundedCircle width={120} height={120} />
+                
+                <Image 
+                    src={form.avatar} 
+                    roundedCircle 
+                    width={120} 
+                    height={120} 
+                    className="m-2 border border-primary border-2 align-self-center"
+                    />
                 <Form.Control 
                     onChange={ (e)=> setAvatar(e.target.files[0])}
                     className="w-50 align-self-center"
@@ -102,7 +114,7 @@ function UpdateProfileForm(props){
                     type="text"
                     placeholder="First Name"
                 />
-                <Form.Control.Feedback type="invalide">This file is required.</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">This file is required.</Form.Control.Feedback>
             </Form.Group>
             
             {/* Group for Last Name */}
@@ -118,7 +130,7 @@ function UpdateProfileForm(props){
                     type="text"
                     placeholder="Last Name"
                 />
-                <Form.Control.Feedback type="invalide">This file is required.</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">This file is required.</Form.Control.Feedback>
             </Form.Group>
 
             {/* Group for Bio */}
@@ -131,7 +143,6 @@ function UpdateProfileForm(props){
                         bio: e.target.value
                     })}
                     required
-                    type="textarea"
                     placeholder="Write your Bio (Optional)"
                     rows={3}
                 />
