@@ -63,7 +63,6 @@ function Post(props){
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
-                                        {/* <Dropdown.Item>Update</Dropdown.Item> */}
                                         <UpdatePost post={post}
                                                     refresh={refresh}/>
 
@@ -121,7 +120,7 @@ function Post(props){
                     {!isSinglePost && (
                         <p className="ms-1 fs-6">
                             <small>
-                                <Link to={`/post/${post.id}/`}>
+                                <Link to={`/api/post/${post.id}/`}>
                                     {post.comments_count} comments
                                 </Link>
                             </small>
@@ -171,10 +170,6 @@ function Post(props){
                         )}    
                 </Card.Footer>
             </Card>
-            {/* <Toaster title="POST!" message="Post Deleted" type="danger" showToast={showToast} onClick={
-                ()=> setShowToast(false)
-            }>
-            </Toaster> */}
         </>
     );
 };

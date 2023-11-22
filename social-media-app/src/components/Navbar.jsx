@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Context } from "./Layout";
-
 import { Navbar, Container, Image, NavDropdown, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getUser, useUserActions } from "../hooks/user.actions";
