@@ -37,7 +37,7 @@ function CreatePost(props){
         };
 
         axiosService
-            .post("/post/",data)
+            .post("/api/post/",data)
 
             .then( () => {
                 handleClose();
