@@ -11,16 +11,21 @@ import ProfileCard from "../components/profile/ProfileCard";
 
 function Home({ name }){
     
-    const posts = useSWR("/api/posts/", fetcher, {
-        refreshInterval: 10000,
+    // const posts = useSWR("/api/posts/", fetcher, {
+    //     refreshInterval: 10000,
+    // });
+    const { data: posts, mutate: mutatePosts } = useSWR("/api/posts/",fetcher,{
+        refreshInterval:10000,
     });
     console.log(posts);
-    const profiles = useSWR("/api/user/?limit=5", fetcher);
+    console.log(mutatePosts);
+    
+    const {data: profiles }= useSWR("/api/user/?limit=5", fetcher);
     
     const user = getUser();
 
     if(!user){
-        return <div>Loading!</div>;
+        return <div>Loading...</div>;
     }
 
 
@@ -47,13 +52,12 @@ function Home({ name }){
                         <Col
                             sm={10} className="flex-grow-1"
                         >
-                            
-                            <CreatePost refresh={posts.mutate}/>
+                            <CreatePost refresh={mutatePosts}/>
                         </Col>
                     </Row>
                     <Row>
-                        {posts.data?.results.map((post, index) => (
-                            <Post key={index} post={post} refresh={posts.mutate}></Post>
+                        {posts?.results.map((post, index) => (
+                            <Post key={index} post={post} refresh={mutatePosts}></Post>
                         ))}
                     </Row>
                 </Col>
@@ -64,7 +68,7 @@ function Home({ name }){
                         People you may know
                     </h4>
                     <div className="d-flex flex-column">
-                        {profiles.data && profiles.data.results.map((profile, index)=>(
+                        {profiles?.results.map((profile, index)=>(
                             <ProfileCard key={index} user={profile}></ProfileCard>
                         ))}
                     </div>
