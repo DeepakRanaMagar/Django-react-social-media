@@ -53,13 +53,14 @@ function useUserActions() {
 
   // Logout the user
     async function logout() {
-        return axiosService
-            .post(`${baseURL}/auth/logout/`, { refresh: getRefreshToken() })
-            .then(() => {
-                localStorage.removeItem("auth");
-                navigate("/login");
-            });
+        try{
+            await axiosService.post(`${baseURL}/auth/logout/`, { refresh: getRefreshToken() });
+            localStorage.removeItem("auth");
+            navigate("/login");
+        }catch(error){
+            console.log(error);
         }
+    }
 }
 
 // Get the user
