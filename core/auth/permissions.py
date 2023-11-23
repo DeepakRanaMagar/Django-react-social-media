@@ -20,8 +20,9 @@ class UserPermission(BasePermission):
             if request.method in SAFE_METHODS:
                 return True
             return bool(request.user.id == obj.id)
+        return False
 
-    def has_object_permission(self, request, view, obj):
+    def has_object_permission(self, request, view):
         
         if view.basename in ["post","post-comment","user","auth-logout"]:
             if request.user.is_anonymous:
