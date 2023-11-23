@@ -58,6 +58,7 @@ function UpdateProfileForm(props){
                 navigate(-1);
             })
             .catch( (err)=> {
+                console.log(err);
                 if(err.message){
                     setError(err.message);       
                 }else{
@@ -82,7 +83,7 @@ function UpdateProfileForm(props){
                 <Form.Label className="text-center">Avatar</Form.Label>
                 
                 <Image 
-                    src={form.avatar} 
+                    src={avatar ? URL.createObjectURL(avatar):form.avatar} 
                     roundedCircle 
                     width={120} 
                     height={120} 
