@@ -7,7 +7,7 @@ from rest_framework import status
 from rest_framework.decorators import action
 
 class PostViewSet(AbstractViewSet):
-    http_method_names = ['get', 'post','put', 'delete']
+    http_method_names = ['get', 'post', 'put', 'delete']
     permission_classes= [IsAuthenticated]
     serializer_class = PostSerializer
     
