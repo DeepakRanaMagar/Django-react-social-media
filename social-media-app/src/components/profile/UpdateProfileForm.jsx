@@ -29,9 +29,9 @@ function UpdateProfileForm(props){
         }
 
         const data = {
-            first_name: form.first_name,
-            last_name: form.last_name,
-            bio: form.bio,
+            first_name: form?.first_name,
+            last_name: form?.last_name,
+            bio: form?.bio,
         };
 
         const formData = new FormData();
@@ -47,7 +47,7 @@ function UpdateProfileForm(props){
         }
         console.log(avatar);
         userActions
-            .edit(formData, profile.id)
+            .edit(formData, profile?.id)
             .then( ()=> {
                 setToaster({
                     type: "success",
@@ -83,7 +83,7 @@ function UpdateProfileForm(props){
                 <Form.Label className="text-center">Avatar</Form.Label>
                 
                 <Image 
-                    src={avatar ? URL.createObjectURL(avatar):form.avatar} 
+                    src={avatar ? URL.createObjectURL(avatar):form?.avatar} 
                     roundedCircle 
                     width={120} 
                     height={120} 
@@ -106,7 +106,7 @@ function UpdateProfileForm(props){
             <Form.Group className="mb-3">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control 
-                    value={form.first_name}
+                    value={form?.first_name}
                     onChange={(e)=> setForm({
                         ...form,
                         first_name: e.target.value
@@ -122,7 +122,7 @@ function UpdateProfileForm(props){
             <Form.Group className="mb-3">
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control 
-                    value={form.last_name}
+                    value={form?.last_name}
                     onChange={(e)=> setForm({
                         ...form,
                         last_name: e.target.value
@@ -138,7 +138,7 @@ function UpdateProfileForm(props){
             <Form.Group className="mb-3">
                 <Form.Label>Bio</Form.Label>
                 <Form.Control 
-                    value={form.bio}
+                    value={form?.bio}
                     onChange={(e)=> setForm({
                         ...form,
                         bio: e.target.value

@@ -16,7 +16,6 @@ class LogoutViewSet(viewsets.ViewSet):
             raise ValidationError({"details":"Refresh Token is required."})
         try:
             token = RefreshToken(request.data.get("refresh"))
-            token.blacklist()
             return Response(status=status.HTTP_204_NO_CONTENT)
         
         except TokenError:

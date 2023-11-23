@@ -23,6 +23,7 @@ function NavigationBar() {
         );
     };
 
+    console.log(user);
     return (
         <Navbar bg="primary" variant="dark">
             <Container>
@@ -36,7 +37,7 @@ function NavigationBar() {
                     <Nav>
                         <NavDropdown
                             title={
-                                <Image src={user.avatar} roundedCircle width={36} height={36} />
+                                <img src={user?.avatar} roundedCircle width={36} height={36} />
                             }
                             >
                             <NavDropdown.Item as={Link} to={`/profile/${user.id}/`}>
