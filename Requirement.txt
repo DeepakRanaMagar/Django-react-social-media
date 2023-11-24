@@ -1,22 +1,24 @@
-Django -> Backend
+# Django -> Backend
+Django==3.2.10
 
-React -> Frontend
+# React -> Frontend
+# Note: React is usually managed with npm or yarn, so it's not listed in requirements.txt
 
-Postgres connector
-pip install psycopg2-binary 
+# Postgres connector
+psycopg2-binary==2.9.3
 
-API testing
-Insomina.rest 
+# API testing
+Insomnia==2021.5.3
 
-DjangoRestFramework
-pip install djangorestframework
-pip install django-filter
+# Django Rest Framework
+djangorestframework==3.12.4
+django-filter==2.4.0
 
-Python Pillow
-pip install Pillow 
+# Python Pillow
+Pillow==8.3.2
 
-Django Nested Routers
-pip install django-nested-routers
+# Django Nested Routers
+django-nested-routers==0.91.6
 
-Pytest for testing
-pip install pytest-django
+# Pytest for testing
+pytest-django==4.4.0
