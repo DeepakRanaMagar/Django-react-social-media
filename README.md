@@ -32,6 +32,7 @@ Before running the project, ensure you have the following dependencies installed
 
 <code>#Frontend dependencies
 npm install / yarn install</code>
+
 <code>#Backend dependencies
 pip install -r requirements.txt</code>
 
