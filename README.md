@@ -21,9 +21,7 @@
     Secondly, Run the Backend Development Server:
 </p>
 
-<code>
-    python manage.py runserver
-</code>
+<code>python manage.py runserver</code>
 
 <p>
     Activate the Postgres Database in pgAdmin4.
