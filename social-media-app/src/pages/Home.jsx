@@ -11,10 +11,7 @@ import ProfileCard from "../components/profile/ProfileCard";
 
 function Home({ name }){
     
-    // const posts = useSWR("/api/posts/", fetcher, {
-    //     refreshInterval: 10000,
-    // });
-    const { data: posts, mutate: mutatePosts } = useSWR("/api/posts/",fetcher,{
+    const { data: posts, mutate: mutatePosts } = useSWR("/api/post/",fetcher,{
         refreshInterval:10000,
     });
     console.log(posts);
@@ -56,7 +53,7 @@ function Home({ name }){
                         </Col>
                     </Row>
                     <Row>
-                        {posts?.results.map((post, index) => (
+                        {posts?.results?.map((post, index) => (
                             <Post key={index} post={post} refresh={mutatePosts}></Post>
                         ))}
                     </Row>

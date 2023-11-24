@@ -13,7 +13,9 @@ function Registration(){
                         </h1>
                         <p className="content">
                             This is a demo social media type sssss that allows to share posts. 
-                            Register Now!
+                            <br />
+                            Register Now.
+                            <br />
                             <Link to="/login/">Login</Link>
                         </p>
                     </div>

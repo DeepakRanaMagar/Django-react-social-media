@@ -12,13 +12,17 @@ function Login(){
                             Welcome back!
                         </h1>
                         <p className="content">
-                            Login to your account! <br/>
-                            Don't have an account? <Link to="/register/">Create your create</Link>
+                            Login to your account!
+                            
                         </p>
                     </div>
                 </div>
                 <div className="col-md-6 p-5">
                     <LoginForm></LoginForm>
+                    <br />
+                    Don't have an account?
+                    <br />
+                    <Link to="/register/">Create your create</Link>
                 </div>
             </div>
         </div>
