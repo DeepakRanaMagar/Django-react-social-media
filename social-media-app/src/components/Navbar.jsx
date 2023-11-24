@@ -37,7 +37,7 @@ function NavigationBar() {
                     <Nav>
                         <NavDropdown
                             title={
-                                <img src={user?.avatar} roundedCircle width={36} height={36} />
+                                <Image alt="NavImage" src={user?.avatar} roundedCircle width={36} height={36} />
                             }
                             >
                             <NavDropdown.Item as={Link} to={`/profile/${user.id}/`}>
