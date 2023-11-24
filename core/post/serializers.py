@@ -11,6 +11,8 @@ class PostSerializer(AbstractSerializer):
     author = serializers.SlugRelatedField(queryset=User.objects.all(), slug_field='public_id')
     liked = serializers.SerializerMethodField()
     likes_count = serializers.SerializerMethodField()
+    # comments_count = serialziers.SerializerMethodField()
+    
     class Meta:
         model = Post
         '''
@@ -29,7 +31,8 @@ class PostSerializer(AbstractSerializer):
     def get_likes_count(self, instance):
         return instance.liked_by.count()
     
-        
+    # def get_comments_count(self, instance):
+    #     return instance.comment_set.count()
     
     def validate_author(self, value):
         if self.context["request"].user!= value:

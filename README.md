@@ -4,7 +4,7 @@
 Welcome to the Django-React Social Media Platform! This project is a basic social media platform built with technologies specified in the requirements.
 </p>
 
-<h1>Getting Starteed</h1>
+<h1>Getting Started</h1>
 
 <h3>Frontend Development Server</h3>
 <p>To run the frontend Development server, follow these steps:

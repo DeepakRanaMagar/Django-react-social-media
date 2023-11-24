@@ -24,6 +24,7 @@ function Post(props){
 
 
     console.log(post);
+    
     const handleLikeClick = async (action) => {
         axiosService
             .post(`/api/post/${post.id}/${action}/`)
