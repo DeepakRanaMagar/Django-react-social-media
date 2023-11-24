@@ -2,10 +2,10 @@ import React from "react";
 import { Button, Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../hooks/user.actions";
-
+import { randomAvatar }from "../../utils.js";
 function ProfileDetails(props) {
     const { user } = props;
-    console.log(user);
+    // console.log(user);
 
     const navigate = useNavigate();
     
@@ -13,7 +13,7 @@ function ProfileDetails(props) {
 
         return <div>Loading..</div>;
     }
-    console.log(user.name);
+    // console.log(user.name);
 
     return (
         // UI code
@@ -21,7 +21,7 @@ function ProfileDetails(props) {
             <div className="d-flex flex-row border-bottom p-5">
                 <Image
                     alt="User avatar"
-                    src={user.avatar}
+                    src={randomAvatar()}
                     roundedCircle
                     width={120}
                     height={120}

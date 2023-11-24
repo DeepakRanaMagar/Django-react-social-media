@@ -3,6 +3,7 @@ import { Context } from "./Layout";
 import { Navbar, Container, Image, NavDropdown, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getUser, useUserActions } from "../hooks/user.actions";
+import { randomAvatar } from "../utils";
 
 function NavigationBar() {
     const { setToaster } = useContext(Context);
@@ -25,7 +26,7 @@ function NavigationBar() {
 
     console.log(user);
     return (
-        <Navbar bg="primary" variant="dark">
+        <Navbar bg="secondary" variant="dark">
             <Container>
         
                 <Navbar.Brand className="fw-bold" as={Link} to={`/`}>
@@ -37,7 +38,7 @@ function NavigationBar() {
                     <Nav>
                         <NavDropdown
                             title={
-                                <Image alt="NavImage" src={user?.avatar} roundedCircle width={36} height={36} />
+                                <Image alt="NavImage" src={randomAvatar()} roundedCircle width={36} height={36} />
                             }
                             >
                             <NavDropdown.Item as={Link} to={`/profile/${user.id}/`}>

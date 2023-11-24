@@ -14,11 +14,12 @@ function Profile(){
     const user = useSWR(`/api/user/${profileId}/`, fetcher);
 
     // console.log(user);
-
+    
     const posts = useSWR(`/api/post/?author__public_id=${profileId}`,fetcher,{
         refreshInterval:20000,
     });
-    console.log(posts)
+    // console.log(posts.data[0].body)
+    // console.log(posts.data.results);
 
     return(
         <Layout hasNavigationBack>
@@ -27,7 +28,7 @@ function Profile(){
                     <ProfileDetails user={user.data}/>
                     <div>
                         <Row className="my-4">
-                            {posts.data?.results?.map((post, index) => (
+                            {posts?.data?.map((post, index) => (
                                 <Post key={index} post={post} refresh={posts.mutate}/>
                             ))}
                         </Row>

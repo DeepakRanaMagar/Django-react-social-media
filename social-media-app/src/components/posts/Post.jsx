@@ -13,6 +13,8 @@ import { getUser } from "../../hooks/user.actions";
 import UpdatePost from "./UpdatePost";
 import MoreToggleIcon from "../MoreToogleIcon";
 import { Context } from "../Layout";
+import { randomAvatar }from "../../utils.js";
+
 
 
 function Post(props){
@@ -20,6 +22,8 @@ function Post(props){
     const { setToaster } = useContext(Context);
     const user = getUser();
 
+
+    console.log(post);
     const handleLikeClick = async (action) => {
         axiosService
             .post(`/api/post/${post.id}/${action}/`)
@@ -75,7 +79,8 @@ function Post(props){
                         
                         <div className="d-flex flex-row">
                             <Image 
-                                src={post.author.avatar}
+                                // src={post.author.avatar}
+                                src = {randomAvatar()}
                                 roundedCircle
                                 width={48}
                                 height={48}

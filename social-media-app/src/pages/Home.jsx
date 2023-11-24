@@ -52,8 +52,10 @@ function Home({ name }){
                             <CreatePost refresh={mutatePosts}/>
                         </Col>
                     </Row>
+
+                    {/* Post display */}
                     <Row>
-                        {posts?.results?.map((post, index) => (
+                        {posts?.map((post, index) => (
                             <Post key={index} post={post} refresh={mutatePosts}></Post>
                         )) || []}
                     </Row>
