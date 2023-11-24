@@ -14,7 +14,7 @@ function Home({ name }){
     const { data: posts, mutate: mutatePosts } = useSWR("/api/post/",fetcher,{
         refreshInterval:10000,
     });
-    console.log(posts[0].body);
+    console.log(posts);
     // console.log(mutatePosts);
     
     const {data: profiles }= useSWR("/api/user/?limit=5", fetcher);
@@ -53,9 +53,9 @@ function Home({ name }){
                         </Col>
                     </Row>
                     <Row>
-                        {posts.results?.map((post, index) => (
+                        {posts?.results?.map((post, index) => (
                             <Post key={index} post={post} refresh={mutatePosts}></Post>
-                        ))}
+                        )) || []}
                     </Row>
                 </Col>
 

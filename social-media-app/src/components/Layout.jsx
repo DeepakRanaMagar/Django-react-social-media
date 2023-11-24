@@ -26,7 +26,7 @@ function Layout(props){
                 {hasNavigationBack && (
                     <ArrowLeftOutlined 
                         style={{
-                            color:"#0D6EFD",
+                            color: "#B22222",
                             fontSize: "24px",
                             marginLeft: "5%",
                             marginRight: "1%",
