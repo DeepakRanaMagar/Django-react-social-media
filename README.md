@@ -43,5 +43,5 @@ pip install -r requirements.txt</code>
     <li>Make your changes and ensure tests pass
     <li>Submit a pull request
 </ol>
-Thank you
+Thank you!
 </p>
